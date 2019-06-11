@@ -8,6 +8,24 @@
                 font-family: "맑은 고딕",돋움;
                 font-size: 14px;
             }
+            input[id="menuicon"] {display:none;}
+            input[id="menuicon"] + ul {display:block;position:fixed;right:0;top:50%;transform:translateY(-50%);transition:all .35s;text-align:right;}
+            input[id="menuicon"] + ul > li {display:block;width:50px;height:50px;border:1px solid #f1f1f1;position:relative;margin-top:-1px;}
+            input[id="menuicon"] + ul > li > a {display:block;width:auto;height:50px;overflow:hidden;transition:all .35s;}
+            input[id="menuicon"] + ul > li > label {display:block;cursor:pointer;width:auto;height:50px;background:#dadada;}
+            input[id="menuicon"] + ul > li:nth-child(1) label span {display:block;position:absolute;width:50%;height:3px;border-radius:30px;background:#333;transition:all .35s;}
+            input[id="menuicon"] + ul > li:nth-child(1) label span:nth-child(1) {top:30%;left:50%;transform:translateX(-50%);}
+            input[id="menuicon"] + ul > li:nth-child(1) label span:nth-child(2) {top:50%;left:50%;transform:translate(-50%,-50%);}
+            input[id="menuicon"] + ul > li:nth-child(1) label span:nth-child(3) {bottom:30%;left:50%;transform:translateX(-50%);}
+            input[id="menuicon"] + ul > li:nth-child(2) a .icon {background:url('./img/search.png') center center no-repeat;background-size:50%;display:inline-block;width:50px;height:50px;vertical-align:middle;}
+            input[id="menuicon"] + ul > li:nth-child(3) a .icon {background:url('./img/sand-clock.png') center center no-repeat;background-size:50%;display:inline-block;width:50px;height:50px;vertical-align:middle;}
+            input[id="menuicon"]:checked + ul {z-index:2;right:300px;}
+            input[id="menuicon"]:checked + ul > li:nth-child(1) label {z-index:2;right:300px;}
+            input[id="menuicon"]:checked + ul > li:nth-child(1) label span:nth-child(1) {top:50%;left:50%;transform:translate(-50%,-50%) rotate(45deg);}
+            input[id="menuicon"]:checked + ul > li:nth-child(1) label span:nth-child(2) {opacity:0;}
+            input[id="menuicon"]:checked + ul > li:nth-child(1) label span:nth-child(3) {bottom:50%;left:50%;transform:translate(-50%,50%) rotate(-45deg);}
+            div[class="sidebar"] {width:300px;height:100%;background:#f5f5f5;position:fixed;top:0;right:-300px;z-index:1;transition:all .35s;}
+            input[id="menuicon"]:checked + ul + div {right:0;}
             p{
                 font-size: 14px;
             }
@@ -47,10 +65,49 @@
         </style>
     </head>
     <body>
+            <input type="checkbox" id="menuicon">
+            <ul>
+                <li>
+                    <label for="menuicon">
+                        <span></span><span></span><span></span>
+                    </label>
+                </li>
+            </ul>
+            <div class="sidebar">
+                <style>
+                    a:link {
+                        text-decoration: none;
+                        color:#80a;
+                      }
+                      
+                    a:visited {
+                        text-decoration: none;
+                        color:#80a;
+                      }
+                      
+                    a:hover {
+                        text-decoration: underline;
+                        color:#08f;
+                      }
+                      
+                    a:active {
+                        text-decoration: underline;
+                        color:#08f;
+                        background-color: rgb(151, 206, 255);
+                      }
+                </style>
+                <h2>&lt; 목차 &gt;</h2>
+                <h3 class="cc"><a href="#Tit01">1. 개요</a></h3>
+                <h3 class="cc"><a href="#Tit02">2. 자기 자신은 어떻게 학습하는가?</a></h3>
+                <ul class="cd">
+                    <li><a href="#Tit02-1">수업할 때</a></li>
+                    <li><a href="#Tit02-2">집에서 공부할 때</a></li>
+                </ul>
+            </div>
         <h1>학습 전략에 대해서..</h1>
         <p>이 문서는 학습 전략, 자기 자신은 어떻게 학습을 하는지 등에 대해서 설명하고 있습니다.</p>
         <br>
-        <h2 style="color:#0af">1. 개요</h2>
+        <h2 style="color:#0af" id="Tit01">1. 개요</h2>
         <hr>
         <p>학습 전략이란 학습을 하기 위해서 학습하는 동안 학습자가 취하는 모든 방법적 사고와 행동을 의미한다.</p>
         <p>또한, 이러한 행동은 학습 과제나 새로운 정보를 보다 효과적으로 처리하는데 필요한 자기 통제기술이며, 자기 관리 기술, 수업 참여 기술, 쓰기 기술 등으로 구성되어 
@@ -86,7 +143,7 @@
             </tr>
         </table>
         <br>
-        <h2 style="color:#06f">2. 자기 자신은 어떻게 학습하는가?</h2>
+        <h2 style="color:#06f" id="Tit02">2. 자기 자신은 어떻게 학습하는가?</h2>
         <hr>
         <table border="1" class="tb_b">
                 <tr class="tb_b_title">
@@ -100,7 +157,7 @@
                     <td>시간 관리</td>
                 </tr>
         </table>
-        <h3>2.1. 수업할 때</h3>
+        <h3 id="Tit02-1">2.1. 수업할 때</h3>
         <hr>
         <p>수업할 때는 실습 같은 것이 있으면 해보고 하다가 모르는 것이 있으면 질문을 하고 설명을 듣는 경우, 중요한 부분이 어디인지 잘 듣고, 
             책에 있는 해당 부분에 형광펜 혹은 볼펜 등으로 표시를 해둔다. 또한 책에 내용이 없어서 필기를 해야하는 경우에는 책이나 노트 등에 필기를 하거나 필기가 
@@ -108,7 +165,7 @@
         </p>
         <p><s style="color:#aaa">근데 정작 본인은 집에 와서 시험 기간 때 말고는 복습을 안 한다는 게 함정... 그렇지만 숙제는 안 까먹고 잘 해오는 편이다.</s></p>
         <br>
-        <h3>2.2. 집에서 공부할 때</h3>
+        <h3 id="Tit02-2">2.2. 집에서 공부할 때</h3>
         <hr>
         <p>집에서는 학교에서 수업 중에 밑줄 등으로 표시한 부분, 책이나 노트 등에 필기한 내용들을 보면서 외우고 정리할 때가 많다. 그렇지만 시험이 수업 진행 중에 풀었던 
             문제에서 주로 나오는 경우도 있어서 외우고 정리하고 난 후에는 문제를 한 번 다시 풀어본다. 그렇지만 시험 문제가 책 문제와 꼭 똑같이 나오지는 않아서 문제를 
